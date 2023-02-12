@@ -6,30 +6,30 @@ import UseState from "./State/UseState/UseState";
 import AppLoader from "./utils/AppLoader/AppLoader";
 import AppAlert from "./utils/AppAlert/AppAlert";
 import TopLoadingBar from "./utils/TopLoadingBar/TopLoadingBar";
-import TopNavaigation from "./utils/TopNavigation/TopNavaigation";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Footer from "./utils/Footer/Footer";
-import Speeder from "./utils/Speeder/Speeder";
+import TopNav from "./utils/TopNav/TopNav";
+import { colors, createTheme, ThemeProvider } from "@mui/material";
+// mulitple screen size xs,sm,md,lg,xl
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: colors.orange[500],
+    },
+  },
+});
 
 function App() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-    },
-  });
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
         <UseState>
           <TestState>
             <UseEffectState>
               <TopLoadingBar />
-              <TopNavaigation />
               <AppLoader />
               <AppAlert />
-              <Speeder />
+              <TopNav />
               <Route />
-              <Footer />
             </UseEffectState>
           </TestState>
         </UseState>
